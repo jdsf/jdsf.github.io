@@ -1,0 +1,275 @@
+/* CSS file for personal website, part of
+  Creative Project
+  04/07, Jose D Sanchez Frugone */
+
+
+@import url('https://fonts.googleapis.com/css?family=Hind+Siliguri|IBM+Plex+Mono|Ovo|Tajawal');
+/*color and padding/margin for whole page */
+body {
+  width: 100%;
+  background-color: grey;
+  padding: 0px;
+  margin: 0px;
+  display:flex;
+  flex-direction:column;
+  align-content:flex-start;
+}
+
+
+/* helper classes */
+
+.hidden {
+  visibility:hidden;
+  opacity: 0;
+}
+
+.visible {
+  visibility:visible;
+  opacity:1;
+}
+
+
+
+.yellow {
+  color: yellow;
+}
+
+/* header layout */
+header {
+  position:relative;
+  background-color: white;
+  height:10px;
+  border-top-color:black;
+  border-left-width: 0;
+  border-right-width: 0;
+  border-bottom-width: 3px;
+  border-top-width: 0px;
+  border-style: solid;
+  display:flex;
+  padding: .7em;
+  justify-content: flex-end;
+  transition: all 1s ease;
+}
+
+header:hover {
+  height:40px;
+}
+
+/* website name/logo styling */
+#logo {
+  text-align: right;
+  font-family: "Ovo",serif;
+  font-size: 40pt;
+  margin: 0;
+  color: white;
+  padding-left: 0px;
+  position: absolute;
+  z-index: +1;
+  left: 10px;
+  bottom: -20px;
+  transition: color 1s ease-in-out;
+}
+
+#logo:hover {
+  color:yellow;
+}
+
+header span {
+  background-color:black;
+  padding-left: 30px;
+}
+
+#logo span {
+  padding-top: 50px;
+}
+
+header a span {
+  background-color:#433b47;
+}
+
+/* layout for links */
+header > div {
+  flex-basis: 70%;
+  align-self:center;
+  display:flex;
+  flex-direction: row;
+  justify-content:space-between;
+  padding-right: 20px;
+  padding-top:3px;
+}
+
+/* link styling */
+header a {
+  text-decoration:none;
+  color: white;
+  font-size: .9em;
+  font-family: "Tajawal", sans-serif;
+  transition: all 1s ease;
+  /*transition: color 1.2s ease-in; */
+}
+
+
+header a:hover {
+  color:red;
+
+}
+
+/* end of header styling */
+
+main {
+  position:relative;
+  display: flex;
+  flex-flow:column;
+  height: 100%;
+  align-content:flex-end;
+  background-color:black;
+}
+
+
+
+/* general styling for each article */
+/* to note: images where implmented html side instead of
+   as background-images to divs in CSS because the div height
+   does not change as a function of the background img. By
+   having a img within an article we can have the container
+   resize responsively */
+
+.sections {
+  position:relative;
+  margin:0px;
+  padding:0px;
+  display:flex;
+  overflow:hidden;
+  align-items:flex-start;
+  border-bottom: black solid 10px;
+  transition: all 1s ease;
+}
+
+.sections a {
+  text-decoration:none;
+  color:yellow;
+}
+
+.sections img {
+  width:100%;
+}
+
+/* styling for quote within article */
+.sections .container {
+  position:absolute;
+  display:flex;
+  flex-direction:row;
+  width:100%;
+  height:100%;
+}
+
+#keeper {
+  position:absolute;
+  top: 8%;
+  left: 5%;
+  height: auto;
+  width: 25%;
+}
+
+#keeper img {
+  border-style:groove;
+  border-width: 3px;
+  border-color: black;
+}
+
+
+.sections blockquote, p {
+  position:relative;
+  top: 60%;
+  left: 12%;
+  color: white;
+  font-size: .95em;
+  font-family: "IBM Plex Mono", monospace;
+  line-height: 20px;
+  text-align: left;
+  padding-left: 20px;
+  margin: 0;
+}
+
+.container > blockquote {
+  transition: all 1s ease;
+  width: 70%;
+}
+
+
+.sections span {
+  background-color:black;
+  padding: 0px;
+}
+
+
+#quote {
+  text-align:right;
+  position:relative;
+  right: 3%;
+  padding-left:0px;
+  margin-right:185px;
+}
+
+#random-img {
+  position: absolute;
+  right: 20px;
+  width: 30%;
+  top: 15%;
+  border-style: groove;
+  border-color: black;
+  transition: all 1s ease;
+}
+
+
+
+
+/* end of body styling */
+
+/* footer styling and layout */
+footer {
+  background-color: black;
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  width:100%;
+}
+
+footer div {
+  display:flex;
+  flex-direction:row;
+  justify-content:space-between;
+}
+
+
+footer p {
+  position:sticky;
+  font-family: "Hind Siliguri", sans-serif;
+  font-size: .6em;
+  text-align: right;
+  color: 	black;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+footer span {
+  background-color: #f8fb97;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#user {
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  align-items:center;
+}
+#user input {
+  width: 50%;
+  font-size: 7pt;
+  background-color:#f8fb97;
+}
+
+#web-notes{
+  width:80%;
+}
