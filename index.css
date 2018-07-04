@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Serif');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
+
+body {
+  padding: 10%;
+  margin: auto;
+  background-color: beige;
+  font-family: 'PT Serif', serif;
+}
+
+h1 {
+  font-size: 1.4em;
+}
+
+a {
+  font-family: 'Roboto Mono', monospace;
+  color:white;
+  text-decoration: none;
+  font-size: .8em;
+}
+
+li > span {
+  background-color: black;
+  color: white;
+}
+
+ul {
+  list-style-type:none;
+  font-size: 1em;
+}
+
+li {
+  padding: 2%;
+  background-color: white;
+}
