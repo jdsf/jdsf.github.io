@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
 
 body {
-  padding: 10%;
+  padding: 5%;
   margin: auto;
   background-color: beige;
   font-family: 'PT Serif', serif;
@@ -51,6 +51,7 @@ li {
 
 footer {
   padding: inherit;
+  margin:auto;
   width:100%;
 }
 
@@ -63,7 +64,8 @@ footer  ul{
   list-style-type: none;
   margin: 0;
   padding: 0;
-  display: flex
+  display: flex;
+  flex-direction: row;
 }
 
 footer a{
