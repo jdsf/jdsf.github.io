@@ -6,10 +6,20 @@ body {
   margin: auto;
   background-color: beige;
   font-family: 'PT Serif', serif;
+  height: 100vh;
+}
+
+span{
+  white-space:pre;
 }
 
 h1 {
   font-size: 1.4em;
+}
+
+h2 {
+  font-size: 1em;
+  padding-bottom: none;
 }
 
 a {
@@ -24,6 +34,11 @@ li > span {
   color: white;
 }
 
+li>span>a:hover{
+  color: yellow;
+  cursor:pointer;
+}
+
 ul {
   list-style-type:none;
   font-size: 1em;
@@ -32,4 +47,25 @@ ul {
 li {
   padding: 2%;
   background-color: white;
+}
+
+footer {
+  padding: inherit;
+  width:100%;
+}
+
+footer li {
+  font-size: 1em;
+}
+
+footer  ul{
+  font-size:.8em;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex
+}
+
+footer a{
+  font-size: .8em;
 }
