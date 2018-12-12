@@ -12,7 +12,25 @@ body {
   display:flex;
   flex-direction:column;
   align-content:flex-start;
+  overflow-y: scroll;
 }
+
+body::-webkit-scrollbar{
+  width: 5px;
+  opacity: .5;
+}
+body::-webkit-scrollbar-track{
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+  opacity: .5;
+}
+body::-webkit-scrollbar-thumb{
+  background: black;
+  border-radius: 10px;
+  opacity: .5;
+}
+
+
 
 .hidden{
   visibility:hidden;
