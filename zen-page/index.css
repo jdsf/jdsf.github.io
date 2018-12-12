@@ -210,7 +210,6 @@ main {
   border-style:solid;
   border-width:2px;
   transition: all 1s ease;
-
 }
 
 .authorInfo p {
@@ -242,6 +241,20 @@ main {
   margin-left:auto;
   margin-right:auto;
 }
+
+  #author2 img {
+    width: 32%;
+    margin-top: 50px;
+  }
+
+  #author2 blockquote {
+    display:inline-block;
+    text-align:center;
+    padding-top:50px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
 
 /* specific article changes */
 #art2 {
