@@ -1,4 +1,4 @@
-/* CSS file for personal website, part of
+/* CSS file for personal website 'creative diary', part of
   Creative Project
   04/07, Jose D Sanchez Frugone */
 
@@ -6,7 +6,6 @@
 @import url('https://fonts.googleapis.com/css?family=Hind+Siliguri|IBM+Plex+Mono|Ovo|Tajawal');
 /*color and padding/margin for whole page */
 body {
-  width: 100%;
   background-color: grey;
   padding: 0px;
   margin: 0px;
@@ -15,12 +14,12 @@ body {
   align-content:flex-start;
 }
 
-.hidden {
+.hidden{
   visibility:hidden;
-  opacity: 0;
+  opacity:0;
 }
 
-.visible {
+.visible{
   visibility:visible;
   opacity:1;
 }
@@ -71,7 +70,7 @@ header span {
 }
 
 #logo span {
-  padding-top: 50px;
+  padding-top: 30px;
 }
 
 header a span {
@@ -96,154 +95,108 @@ header a {
   font-size: .9em;
   font-family: "Tajawal", sans-serif;
   transition: all 1s ease;
-  /*transition: color 1.2s ease-in; */
 }
-
 
 header a:hover {
   color:yellow;
-
 }
 
 /* end of header styling */
 
 main {
-  position:relative;
-  display: flex;
+  display:flex;
   flex-flow:column;
-  height: 100%;
+  height:100%;
   align-content:flex-end;
   background-color:black;
 }
 
-
-
-/* general styling for each article */
-/* to note: images where implmented html side instead of
-   as background-images to divs in CSS because the div height
-   does not change as a function of the background img. By
-   having a img within an article we can have the container
-   resize responsively */
 
 .sections {
   position:relative;
   margin:0px;
   padding:0px;
   display:flex;
-  overflow:hidden;
   align-items:flex-start;
   border-bottom: black solid 10px;
   transition: all 1s ease;
-}
-
-.sections a {
-  text-decoration:none;
-  color:yellow;
 }
 
 .sections img {
   width:100%;
 }
 
-/* styling for quote within article */
-.sections .container {
-  position:absolute;
+
+
+/* styling for text  within article */
+/* overlayed text container on image */
+
+
+.sections > div {
+  margin:0;
   display:flex;
-  flex-direction:row;
-  width:100%;
-  height:100%;
+  flex-direction:column;
+  justify-content:flex-start;
+  overflow:hidden;
+  position:absolute;
+  top:0px;
+  bottom: 0px;
+  padding-top: 30px;
 }
 
-
-.sections blockquote, p {
-  position:relative;
-  align-self:center;
+.sections > div p, h1 {
   color: white;
-  font-size: 1em;
+  font-size: .8em;
   font-family: "IBM Plex Mono", monospace;
-  line-height: 20px;
+  line-height: 16px;
   text-align: left;
-  padding-left: 20px;
-  margin: 0;
+  padding: 15px;
+  margin:0px;
+  height: 15px;
+  overflow: hidden;
 }
 
-.container > blockquote {
-  transition: all 1s ease;
+.entries {
+  transition: all 1s ease-in-out;
 }
+.entries:hover{
+  height:200px;
+}
+
+
+
 .sections span {
   background-color:black;
   padding: 0px;
+  opacity:.5;
 }
 
-/*  general styling for Author info */
+h1 {
+  padding: 0px;
+  padding-top: 15px;
+  padding-left: 10px;
+  padding-bottom:10px;
+  font-style: normal;
+}
 
-.author{
-  color:yellow;
+.sections h1 span {
+  opacity: 1;
+}
+
+.sections span:hover {
+  opacity:1;
 }
 
 
-.authorInfo {
-  position:absolute;
-  margin: 0;
-  right: 0px;
-  top:0px;
-  bottom:0px;
-  width:100%;
-  background: rgba(0,0,0,.5);
-  border-style:solid;
-  border-width:2px;
-  transition: all 1s ease;
-
-}
-
-.authorInfo p {
-  text-align: right;
-  position:relative;
-  padding-right:15px;
-  padding-top: 60px;
-  align-self:flex-start;
-  padding-left:0px;
-  font-size: .8em;
-  vertical-align:middle;
-}
-
-.authorInfo img {
-  text-align:center;
-  border-radius:50%;
-  height:auto;
-  width:35%;
-  float:left;
-  align-self:center;
-  margin-left:15px;
-  margin-top: 100px;
-}
-
-.authorInfo blockquote {
-  display:inline-block;
-  text-align:center;
-  padding-top:50px;
-  margin-left:auto;
-  margin-right:auto;
-}
-
-/* specific article changes */
 #art2 {
   position:absolute;
-  justify-content:flex-end;
 }
 
-#art2 .container {
-  justify-content:flex-end;
+.author {
+  cursor: pointer;
 }
 
-#art2 blockquote {
-  text-align: right;
-  padding-left:0;
-  padding-right: 20px;
-}
-
-
-/* end of body styling */
+/* end of main body styling */
 
 /* footer styling and layout */
 footer {
@@ -257,7 +210,6 @@ footer {
 }
 
 footer p {
-  position:relative;
   font-family: "Hind Siliguri", sans-serif;
   font-size: .6em;
   text-align: right;

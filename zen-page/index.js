@@ -10,20 +10,13 @@
 
 
 
-    if (document.body.classList.contains('index')) {   // if on index, execute
-      timer = setInterval(changeBackground, 8000);
-      let currentBackground = 0;
-      handleBackgroundPress();
+    if (document.body.classList.contains('diary')) {   // if on index, execute
       handleUser();
       handleParagraphs();
-      setTimeout(function(){
-        window.alert("As before, use arrow keys to cycle backgrounds." +
-      " Hover over entries to expand.");
-      }, 1500);
     }
 
 
-    if (document.body.classList.contains('home')) {  // if on home, execute quote
+    if (document.body.classList.contains('index')) {  // if on home, execute quote
       timer = setInterval(changeBackground, 8000);
 
       let currentBackground = 0;
@@ -31,11 +24,6 @@
       handleBackgroundPress();
       handleUser();
       quoteInfo();
-      setTimeout(function(){
-        window.alert("Try pressing on Ryokan for more info" +
-        " You can also log your stay on the bottom left corner." +
-        " Try visiting the creative diary section too.");
-      }, 1000);
     }
   };
 
@@ -155,7 +143,7 @@
       let response = window.prompt("Traveller, who are you?");
       if (response !== null && response !== "") {
         let idBox = document.getElementById("user");
-        let txt = document.createTextNode("Wandering as " + response + ", a kind, curious soul");
+        let txt = document.createTextNode("Wandering as " + response + ", a kind and curious soul");
         let span = document.createElement("SPAN");
         let para = document.createElement("P");
         span.appendChild(txt);
@@ -167,136 +155,9 @@
     };
   }
 
-
-  function keeperConversation() {
-
-
-    let affirm = $("yes");
-    affirm.addEventListener("click", function(){
-      let you = $("you");
-      let you2 = you.cloneNode(true);
-      you.innerText ="";
-      addLine(you, "You: please", 800);
-      let keeper = $("keeper-txt");
-      addLine(keeper, "Keeper: Very well,", 1800);
-      addLine(keeper, "Keeper: though I cannot guarantee it will make sense.", 2500);
-      addLine(keeper, "Keeper: It is difficult to say with these things...", 3500);
-      setTimeout(ajax, 5000);
-      setTimeout(callAjax, 5000);
-      setTimeout(function(){
-        keeper.innerText= "Keeper: Traveller, would you like another?";
-        setTimeout(function (){
-          keeper.appendChild(you2);
-          $('yes').innerText = "show me";
-          $('no').innerText = "this is enough";
-          keeperConversation();
-        }, 1000);
-      }, 9000);
-
-    });
-
-
-    let deny = $("no");
-    deny.addEventListener("click", function(){
-      let you = $("you");
-      let you2 = you.cloneNode(true);
-      you.innerText = "";
-      addLine( you, "You: no, that's quite alright", 1000);
-      let keeper = $("keeper-txt");
-      addLine(keeper, "Keeper: Ahh, youth ...", 2000);
-      addLine(keeper, "Keeper: Well,", 3500);
-      setTimeout(function(){
-        keeper.innerText = "";
-      }, 4500);
-      addLine(keeper, "Keeper: Let me know if you change your mind", 5000);
-      setTimeout(function(){
-        setTimeout(function(){
-          keeper.appendChild(you2);
-          $('yes').innerText = "ready";
-          $('no').innerText = "no thanks, keeper";
-          keeperConversation();
-        }, 3000);
-      }, 5000);
-
-    });
-  }
-
-
-
-  // JASONP ajax call, circunventing CORS restrictions
-  function ajax(){
-    if (document.getElementsByTagName('script').length > 1) {
-      let children = document.head.children;
-      children[(children.length - 2)].parentNode.removeChild(children.length - 1);
-    }
-    let head = document.head;
-    let script = document.createElement("SCRIPT");
-    script.src = " http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&_jsonp=myCallBack";
-    head.appendChild(script);
-  }
-
-  // make an Ajax request by directly setting
-  // a new image tag's src attribute as the API url
-  function callAjax() {
-    let url = "https://picsum.photos/400/600/?random";
-    let newImg = document.createElement("IMG");
-    let imgDiv = $("random-img");
-    imgDiv.innerHTML = "";
-    newImg.src = url;
-    imgDiv.appendChild(newImg);
-    setTimeout(function(){
-      imgDiv.classList.remove("hidden");
-      imgDiv.classList.add("visible");
-    }, 1000);
-  }
-
-
-function showImg(responseText){
-  console.log(responseText);
-  let jsonResponse = JSON.parse(responseText);
-}
-
-// helper function, adds a new line of text
-// the passed in parent with a delay given by
-// time
-function addLine(parent, sentence, time) {
-  setTimeout(function() {
-    let lnBreak = document.createElement("BR");
-    parent.appendChild(lnBreak);
-    parent.appendChild(document.createTextNode(sentence));
-  }, time);
-}
-
   // helper function, returns element given id
   function $(id){
     return document.getElementById(id);
   }
 
-  // helper function, checks the status of
-  // an ajax calledfunction checkStatus(response) {
-  function checkStatus(response) {
-     if (response.status >= 200 && response.status < 300) {
-       return response.text();
-     } else {
-       return Promise.reject(new Error(response.status +
-                                        ": " + response.statusText));
-     }
-   }
 })();
-
-// JASONP call back function
-function myCallBack(resObject){
-  let quote = document.getElementById("quote");
-  let dialogue = document.getElementById("keeper-txt");
-  dialogue.innerHtml = "";
-  let span = document.createElement("SPAN");
-  span.innerHTML = resObject[0].content;
-  span.innerHTML = span.innerText;
-  quote.innerHTML = "";
-  quote.appendChild(span)
-  let span2 = document.createElement("SPAN");
-  span2.innerHTML = "<br> - " + resObject[0].title;
-  quote.appendChild(span2);
-  quote.classList.remove("hidden");
-  quote.classList.add("visible")
-}
