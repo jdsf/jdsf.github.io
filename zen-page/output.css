@@ -1,0 +1,241 @@
+@import url("https://fonts.googleapis.com/css?family=Hind+Siliguri|IBM+Plex+Mono|Ovo|Tajawal");
+.sections .container .authorInfo p, .sections .container .authorInfo, .sections .container blockquote, .sections, body,
+html {
+  margin: 0px;
+  padding: 0px;
+}
+
+.sections .container .authorInfo, .sections .container, main {
+  width: 100%;
+  height: 100%;
+}
+
+footer, header > div, header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+footer #user, main, body {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+body,
+html {
+  text-align: center;
+  overflow: hidden;
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  z-index: -20;
+  align-content: flex-start;
+}
+
+header {
+  position: relative;
+  background-color: white;
+  height: 30px;
+  transition: all 1s ease;
+  z-index: 500;
+}
+header:hover {
+  height: 45px;
+}
+header span {
+  background-color: black;
+  padding-left: 30px;
+}
+header #logo {
+  position: absolute;
+  text-align: right;
+  font-family: "Ovo", serif;
+  font-size: 40pt;
+  color: white;
+  margin: 0;
+  padding: 0;
+  z-index: 800;
+  left: 10px;
+  bottom: -20px;
+  transition: color 1s ease-in-out;
+}
+header #logo:hover {
+  color: yellow;
+}
+header #logo span {
+  padding-top: 50px;
+}
+header > div {
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 10px;
+  flex-basis: 70%;
+  align-self: center;
+  padding-right: 20px;
+}
+header a {
+  margin: 10px;
+  text-decoration: none;
+  color: white;
+  font-size: 0.9em;
+  font-family: "Tajawal", sans-serif;
+  transition: all 0.5s ease;
+}
+header a:hover {
+  color: #f8fb97;
+}
+
+main {
+  overflow: hidden;
+  background-color: black;
+  position: relative;
+  justify-content: flex-start;
+}
+
+.sections {
+  flex-shrink: 0;
+  transition: all 1s ease;
+}
+.sections a {
+  text-decoration: none;
+  color: yellow;
+}
+.sections > img {
+  min-width: 1100px;
+  height: auto;
+  max-width: 100vw;
+  object-fit: fill;
+}
+.sections span {
+  background-color: black;
+}
+.sections .container {
+  position: absolute;
+  z-index: 200;
+  top: 0;
+}
+.sections .container blockquote {
+  color: white;
+  font-size: 1em;
+  font-family: "IBM Plex Mono", monospace;
+  line-height: 20px;
+  text-align: left;
+  align-self: center;
+  padding-left: 20px;
+  transition: all 1s ease;
+  margin-top: 35%;
+  z-index: 10;
+}
+.sections .container blockquote .author {
+  color: yellow;
+}
+.sections .container .authorInfo {
+  position: absolute;
+  top: 0;
+  background: rgba(0, 0, 0, 0.5);
+  transition: all 1s ease;
+}
+.sections .container .authorInfo p {
+  color: white;
+  font-family: "IBM Plex Mono", monospace;
+  text-align: right;
+  position: relative;
+  padding-right: 15px;
+  font-size: 0.8em;
+  margin-bottom: 15px;
+  margin-top: 10px;
+}
+.sections .container .authorInfo blockquote {
+  margin-top: 20px;
+  margin-right: 100px;
+  text-align: right;
+}
+.sections .container .authorInfo img {
+  border-radius: 50%;
+  width: 32%;
+  margin-left: 10px;
+  margin-top: 7%;
+  float: left;
+  z-index: -1;
+}
+.sections .container #author2 {
+  padding-top: 11%;
+}
+.sections .container #author2 img {
+  width: auto;
+  margin-left: 50px;
+}
+
+#art2.sections {
+  position: absolute;
+}
+#art2.sections blockquote {
+  position: absolute;
+  padding-right: 20px;
+  padding-left: 0px;
+  right: 0;
+}
+
+#art2 blockquote {
+  text-align: right;
+}
+
+#art2.authorInfo {
+  position: relative;
+}
+
+footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  z-index: 400;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  background-color: black;
+}
+footer p {
+  font-family: "Hind Siliguri", sans-serif;
+  font-size: 0.6em;
+  text-align: right;
+  color: black;
+  margin-top: 5px;
+  margin-top: 5px;
+  align-self: center;
+}
+footer span {
+  background-color: #f8fb97;
+}
+footer #user input {
+  width: 50%;
+  font-size: 7pt;
+  background-color: #f8fb97;
+}
+
+/*# sourceMappingURL=output.css.map */
