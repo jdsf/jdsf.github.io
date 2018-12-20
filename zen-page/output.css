@@ -10,7 +10,7 @@ html {
   height: 100%;
 }
 
-footer, header > div, header {
+footer #user, footer, header > div, header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -23,7 +23,7 @@ footer, header > div, header {
   justify-content: center;
 }
 
-footer #user, main, body {
+main, body {
   display: -webkit-box;
   display: flex;
   -webkit-box-orient: vertical;
@@ -37,7 +37,6 @@ footer #user, main, body {
 body,
 html {
   text-align: center;
-  overflow: hidden;
 }
 
 .hidden {
@@ -67,8 +66,13 @@ header {
   transition: all 1s ease;
   z-index: 500;
 }
-header:hover {
-  height: 15%;
+@media only screen and (min-width: 768px) {
+  header {
+    height: 8%;
+  }
+  header:hover {
+    height: 10%;
+  }
 }
 header span {
   background-color: black;
@@ -77,17 +81,13 @@ header span {
 header #logo {
   position: absolute;
   font-family: "Ovo", serif;
-  font-size: 8vw;
-  color: white;
+  font-size: 5vmax;
+  color: #f8fb97;
   margin: 0;
   padding: 0;
-  z-index: 800;
   left: 10px;
   bottom: -20px;
   transition: color 1s ease-in-out;
-}
-header #logo:hover {
-  color: yellow;
 }
 header #logo span {
   padding-top: 500px;
@@ -96,21 +96,26 @@ header > div {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  flex-basis: 80%;
   align-self: center;
   right: 0;
+  left: 0;
 }
 header a {
-  margin: 10px;
+  z-index: 800;
   text-decoration: none;
-  color: white;
+  color: #f8fb97;
   text-align: right;
-  font-size: 5vw;
+  font-size: 2.5vmax;
   font-family: "Tajawal", sans-serif;
   transition: all 0.5s ease;
 }
-header a:hover {
-  color: #f8fb97;
+@media only screen and (min-width: 768px) {
+  header a {
+    font-size: 1.2vmax;
+  }
+}
+header a span {
+  padding: 0;
 }
 
 main {
@@ -120,18 +125,38 @@ main {
   justify-content: flex-start;
 }
 
+#art2 {
+  background-image: url("./pgarden_summer1.jpg");
+}
+
+#art1 {
+  background-image: url("./pgarden_fall1.jpg");
+}
+
 .sections {
-  position: absolute;
-  height: 100%;
+  height: 75vh;
   width: 100vw;
-  transition: all 1s ease;
+  transition: all 0.5s ease;
+  background-size: cover;
+}
+@media only screen and (min-width: 768px) {
+  .sections {
+    height: 85vh;
+  }
 }
 .sections a {
   text-decoration: none;
   color: yellow;
 }
 .sections > img {
-  width: 2150px;
+  visibility: hidden;
+  object-fit: cover;
+  min-width: 1500px;
+}
+@media only screen and (min-width: 768px) {
+  .sections > img {
+    max-width: 100vw;
+  }
 }
 .sections span {
   background-color: black;
@@ -139,26 +164,32 @@ main {
 .sections .container {
   position: absolute;
   width: 100vw;
-  height: 100%;
+  height: inherit;
   z-index: 200;
   top: 0;
 }
 .sections .container blockquote {
   position: absolute;
   color: white;
-  font-size: 3vw;
+  font-size: 1.5vmax;
   font-family: "IBM Plex Mono", monospace;
   text-align: left;
   left: 2.5%;
   top: 40%;
-  transition: all 1s ease;
+  transition: all 0.5s ease;
   z-index: 10;
+}
+@media only screen and (min-width: 768px) {
+  .sections .container blockquote {
+    font-size: 1.2vmax;
+  }
 }
 .sections .container blockquote .author {
   color: yellow;
 }
 .sections .container .authorInfo {
-  position: absolute;
+  overflow-y: scroll;
+  position: relative;
   top: 0;
   background: rgba(0, 0, 0, 0.5);
   transition: all 1s ease;
@@ -166,65 +197,99 @@ main {
 .sections .container .authorInfo p {
   color: white;
   font-family: "IBM Plex Mono", monospace;
-  text-align: right;
+  text-align: center;
   position: relative;
-  padding-right: 15px;
-  font-size: 0.8em;
-  margin-bottom: 15px;
-  margin-top: 10px;
+  margin: 2%;
+  font-size: 2vmax;
+}
+@media only screen and (min-width: 768px) {
+  .sections .container .authorInfo p {
+    font-size: 1.2vmax;
+  }
 }
 .sections .container .authorInfo blockquote {
-  margin-top: 20px;
-  margin-right: 100px;
-  text-align: right;
+  position: relative;
+  text-align: center;
+  top: 0px;
+  margin: 8%;
+  display: inline-block;
 }
 .sections .container .authorInfo img {
   border-radius: 50%;
-  width: 32%;
-  margin-left: 10px;
-  margin-top: 7%;
-  float: left;
+  width: 50%;
+  margin-top: 5%;
   z-index: -1;
 }
-.sections .container #author2 {
-  padding-top: 11%;
+@media only screen and (min-width: 768px) {
+  .sections .container .authorInfo img {
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-top: 4%;
+    margin-bottom: auto;
+    width: 30%;
+    float: left;
+  }
+}
+.sections .container .authorInfo::-webkit-scrollbar {
+  width: 5px;
+  opacity: 0.5;
+}
+.sections .container .authorInfo::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+  opacity: 0.5;
+}
+.sections .container .authorInfo::-webkit-scrollbar-thumb {
+  background: black;
+  border-radius: 10px;
+  opacity: 0.5;
 }
 .sections .container #author2 img {
-  width: auto;
-  margin-left: 50px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media only screen and (min-width: 768px) {
+  .sections .container #author2 img {
+    margin-top: 2%;
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-bottom: 3%;
+    width: 24%;
+    float: left;
+  }
 }
 
 #art2.sections {
   position: absolute;
 }
 #art2.sections blockquote {
-  padding-right: 20px;
-  padding-left: 0px;
-  right: 0;
-}
-
-#art2 blockquote {
   text-align: right;
+  right: 20px;
 }
-
-#art2.authorInfo {
-  position: relative;
+#art2.sections .container .authorInfo blockquote {
+  text-align: center;
+  margin-top: 5%;
 }
 
 footer {
   margin-top: auto;
   bottom: 0;
-  height: 15%;
   z-index: 400;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
   background-color: black;
-  padding: 5%;
+  padding: 10px;
+  font-size: 1.2vmax;
+}
+@media only screen and (min-width: 768px) {
+  footer {
+    font-size: 0.6vmax;
+  }
 }
 footer p {
   font-family: "Hind Siliguri", sans-serif;
-  font-size: 2.8vw;
   text-align: right;
   color: #f8fb97;
   align-self: center;
@@ -232,12 +297,21 @@ footer p {
 footer span {
   background-color: black;
 }
+footer #user {
+  width: 10%;
+}
 footer #user input {
+  border: none;
+  font-size: 1.2vmax;
   position: relative;
-  left: 40%;
   width: 50%;
-  font-size: 3vw;
+  height: auto;
   background-color: #f8fb97;
+}
+@media only screen and (min-width: 768px) {
+  footer #user input {
+    font-size: 0.6vmax;
+  }
 }
 
 /*# sourceMappingURL=output.css.map */

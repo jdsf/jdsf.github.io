@@ -49,7 +49,6 @@ body,
 html{
   text-align:center;
   @extend %tight;
-  overflow: hidden;
 }
 
 .hidden{
@@ -78,9 +77,13 @@ header{
   height: 15%;
   transition: all 1s ease;
   z-index:500;
-  &:hover{
-    height:15%;
+  @media only screen and (min-width: 768px){
+    height:8%;
+    &:hover{
+      height:10%;
+    }
   }
+
 
   span{
     background-color:color(secondary);
@@ -89,16 +92,12 @@ header{
 
   #logo{
     position: absolute;
-    font-family: "Ovo", serif; font-size: 8vw;
-    color: color(primary);
+    font-family: "Ovo", serif; font-size: 5vmax;
+    color: color(accent);
     margin: 0; padding:0;
-    z-index: 800;
     left:10px; bottom: -20px;
     transition: color 1s ease-in-out;
 
-    &:hover{
-      color:color(tertiary);
-    }
 
     span{
       padding-top: 500px;
@@ -109,21 +108,25 @@ header{
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    flex-basis: 80%;
     align-self: center;
-    right: 0;
+    right: 0; left:0;
   }
 
+
+
   a{
-    margin: 10px;
+    z-index:800;
     text-decoration: none;
-    color: color(primary);
+    color: color(accent);
     text-align: right;
-    font-size: 5vw ;
+    font-size: 2.5vmax ;
     font-family: "Tajawal", sans-serif;
     transition: all .5s ease;
-    &:hover{
-      color:color(accent);
+    @media only screen and (min-width: 768px){
+      font-size: 1.2vmax;
+    }
+    span{
+      padding: 0;
     }
   }
 }
@@ -136,12 +139,24 @@ main{
   justify-content: flex-start;
 }
 
+
+#art2{
+  background-image:url("./pgarden_summer1.jpg");
+}
+#art1{
+  background-image:url("./pgarden_fall1.jpg");
+}
+
 .sections{
   @extend %tight;
-  position:absolute;
-  height: 100%;
+  height: 75vh;
   width: 100vw;
-  transition: all 1s ease;
+  transition: all .5s ease;
+  background-size:cover;
+  @media only screen and (min-width: 768px){
+    height: 85vh;
+  }
+
 
   a{
     text-decoration: none;
@@ -149,7 +164,12 @@ main{
   }
 
   &>img{
-    width:2150px
+    visibility:hidden;
+    object-fit:cover;
+    min-width:1500px;
+    @media only screen and (min-width: 768px){
+      max-width: 100vw;
+    }
   }
 
   span{
@@ -159,7 +179,7 @@ main{
   .container{
     position: absolute;
     width: 100vw;
-    height: 100%;
+    height: inherit;
     z-index: 200;
     top: 0;
 
@@ -167,11 +187,14 @@ main{
       @extend %tight;
       position: absolute;
       color: color(primary);
-      font-size: 3vw; font-family: "IBM Plex Mono", monospace;
+      font-size: 1.5vmax; font-family: "IBM Plex Mono", monospace;
       text-align: left;
       left: 2.5%; top: 40%;
-      transition: all 1s ease;
+      transition: all .5s ease;
       z-index: 10;
+      @media only screen and (min-width: 768px){
+        font-size: 1.2vmax;
+      }
       .author{
         color: color(tertiary);
       }
@@ -180,41 +203,75 @@ main{
     .authorInfo{
       @extend %tight;
       @extend %cover;
-      position: absolute; top:0;
+      overflow-y:scroll;
+      position: relative; top:0;
       background: rgba(0,0,0,.5);
       transition: all 1s ease;
       p{
         @extend %tight;
         color: color(primary);
         font-family: "IBM Plex Mono", monospace;
-        text-align: right;
+        text-align: center;
         position: relative;
-        padding-right: 15px;
-        font-size: .8em;
-        margin-bottom: 15px; margin-top: 10px;
+        margin: 2%;
+        font-size: 2vmax;
+        @media only screen and (min-width: 768px){
+          font-size: 1.2vmax;
+        }
       }
 
       blockquote{
-        margin-top: 20px;
-        margin-right: 100px;
-        text-align: right;
+        position: relative;
+        text-align: center;
+        top: 0px;
+        margin: 8%;
+        display: inline-block;
       }
 
       img{
         border-radius: 50%;
-        width: 32%;
-        margin-left: 10px;
-        margin-top: 7%;
-        float: left;
+        width: 50%;
+        margin-top: 5%;
         z-index: -1;
+        @media only screen and (min-width: 768px){
+          margin-left: 3%;
+          margin-right: 3%;
+          margin-top: 4%;
+          margin-bottom: auto;
+          width: 30%;
+          float: left;
+        }
+      }
+
+      &::-webkit-scrollbar{
+        width: 5px;
+        opacity: .5;
+      }
+      &::-webkit-scrollbar-track{
+        box-shadow: inset 0 0 5px grey;
+        border-radius: 10px;
+        opacity: .5;
+      }
+      &::-webkit-scrollbar-thumb{
+        background: black;
+        border-radius: 10px;
+        opacity: .5;
       }
     }
 
     #author2{
-      padding-top: 11%;
       img{
-        width: auto;
-        margin-left: 50px;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+        @media only screen and (min-width: 768px){
+          margin-top: 2%;
+          margin-left: 3%;
+          margin-right: 3%;
+          margin-bottom: 3%;
+          width: 24%;
+          float: left;
+        }
       }
     }
   }
@@ -223,36 +280,39 @@ main{
 #art2.sections{
   position: absolute;
   blockquote{
-    padding-right: 20px; padding-left: 0px;
-    right: 0;
+    text-align:right;
+    right: 20px;
   }
-}
-
-#art2 blockquote{
-  text-align: right;
-}
-
-#art2.authorInfo{
-  position:relative;
+  .container{
+    .authorInfo{
+      blockquote{
+        text-align: center;
+        margin-top: 5%;
+      }
+    }
+  }
 }
 
 footer{
   @extend %flex-row;
   margin-top: auto;
   bottom:0;
-  height: 15%;
   z-index: 400;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
   background-color: color(secondary);
-  padding:5%;
+  padding:10px;
+  font-size: 1.2vmax;
+  @media only screen and (min-width: 768px){
+    font-size: .6vmax;
+  }
   p{
     font-family: "Hind Siliguri", sans-serif;
-    font-size: 2.8vw;
     text-align: right;
     color: color(accent);
     align-self: center;
+
   }
 
   span{
@@ -260,13 +320,18 @@ footer{
   }
 
   #user{
-    @extend %flex-col;
-
+    @extend %flex-row;
+    width: 10%;
     input{
+      border: none;
+      font-size: 1.2vmax;
       position: relative;
-      left: 40%;
-      width: 50%; font-size: 3vw;
+      width: 50%;
+      height: auto;
       background-color: color(accent);
+      @media only screen and (min-width: 768px){
+        font-size: .6vmax;
+      }
     }
   }
 }
